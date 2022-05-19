@@ -19,4 +19,6 @@ def create_app():
     login_manager.init_app(app)
 
     with app.app_context():
+        from .user_api import user_api_blueprint
+        app.register_blueprint(user_api_blueprint)
         return app
