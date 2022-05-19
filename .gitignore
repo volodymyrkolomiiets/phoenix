@@ -8,11 +8,15 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+.idea
 build/
+docker_config
+.flask_env
 develop-eggs/
 dist/
 downloads/
 eggs/
+.db/
 .eggs/
 lib/
 lib64/

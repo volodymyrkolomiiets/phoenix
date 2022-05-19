@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    env_file:
+      - $PWD/docker_config
+    ports:
+      - "33061:3306"
+    volumes:
+      - $PWD/.db:/var/lib/mysql
