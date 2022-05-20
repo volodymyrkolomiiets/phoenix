@@ -1,8 +1,5 @@
-# users.Dockerfile
-
 FROM python:3.9.12
-WORKDIR userapp
-ENV hello=1
+WORKDIR productapp
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY . .

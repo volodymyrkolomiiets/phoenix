@@ -10,8 +10,8 @@ __pycache__/
 .Python
 .idea
 build/
-docker_config
-.flaskenv
+docker_conf/docker_user_config
+user_app/.flaskenv
 develop-eggs/
 dist/
 downloads/
