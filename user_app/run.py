@@ -1,5 +1,5 @@
 # run.py
-from application import create_app, db, models
+from application import create_app, db
 from flask_migrate import Migrate
 from flask import g
 from flask.sessions import SecureCookieSessionInterface
