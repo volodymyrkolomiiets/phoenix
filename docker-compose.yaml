@@ -1,14 +1,13 @@
 version: '3.8'
 services:
   user-srv:
-
-    build: .
-#      context: .
-#      dockerfile: Dockerfile
+    build:
+     context: user_app
+     dockerfile: users.Dockerfile
     ports:
       - "5001:5001"
     volumes:
-      - $PWD:/userapp
+      - $PWD/user_app:/userapp
     links:
       - db
   db:
@@ -19,4 +18,4 @@ services:
     ports:
       - "33061:3306"
     volumes:
-      - $PWD/.db:/var/lib/mysql
+      - $PWD/user_app/.db:/var/lib/mysql
