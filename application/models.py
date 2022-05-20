@@ -21,7 +21,7 @@ class User(UserMixin, db.Model):
     date_updated = db.Column(db.DateTime, onupdate=datetime.utcnow)
 
     def encode_api_key(self):
-        self.api_key = sha256_crypt(self.username + str(datetime.utcnow))
+        self.api_key = sha256_crypt.hash(self.username + str(datetime.utcnow))
 
     def encode_password(self):
         self.password = sha256_crypt.hash(self.password)
@@ -38,5 +38,5 @@ class User(UserMixin, db.Model):
             "id": self.id,
             "apy_key": self.api_key,
             "is_active": True,
-            "is_admin": self.admin
+            "is_admin": self.is_admin
         }

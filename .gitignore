@@ -11,7 +11,7 @@ __pycache__/
 .idea
 build/
 docker_config
-.flask_env
+.flaskenv
 develop-eggs/
 dist/
 downloads/

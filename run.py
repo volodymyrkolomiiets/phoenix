@@ -1,14 +1,13 @@
 # run.py
 from application import create_app, db, models
 from flask_migrate import Migrate
-
-app = create_app()
-migrate = Migrate(app, db)
-
-
 from flask import g
 from flask.sessions import SecureCookieSessionInterface
 from flask_login import user_loaded_from_cookie
+
+
+app = create_app()
+migrate = Migrate(app, db)
 
 
 class CustomSessionInterface(SecureCookieSessionInterface):

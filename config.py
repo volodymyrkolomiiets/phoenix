@@ -15,15 +15,15 @@ class Config:
 class DevelopmentConfig(Config):
     user = os.environ.get('MYSQL_USER')
     user_password = os.environ.get("MYSQL_PASSWORD")
-    mysl_host = os.environ.get("MYSQL_HOST")
+    mysql_host = os.environ.get("MYSQL_HOST")
     mysql_port = os.environ.get("MYSQL_PORT")
     mysql_db = os.environ.get("MYSQL_DB")
 
     ENV = 'development'
     DEBUG = True
 
-    SQLALCHEMY_DATABASE_URI = f'mysql+mysqlconnector://{user}:{user_password}@{mysl_host}:{mysql_port}/{mysql_db}'
-    SQLALCHEMY_ECHO=True
+    SQLALCHEMY_DATABASE_URI = f'mysql+mysqlconnector://{user}:{user_password}@db:{mysql_port}/{mysql_db}'
+    SQLALCHEMY_ECHO = True
 
 
 class ProductionConfig(Config):
