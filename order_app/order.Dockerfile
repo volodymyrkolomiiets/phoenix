@@ -1,8 +1,5 @@
-# users.Dockerfile
-
 FROM python:3.9-alpine
-WORKDIR user_app
-ENV hello=1
+WORKDIR order_app
 COPY requirements.txt requirements.txt
 ENV PYTHONUNBUFFERED=1
 RUN apk add build-base
