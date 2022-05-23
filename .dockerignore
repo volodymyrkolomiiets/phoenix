@@ -15,3 +15,6 @@ docker-compose.yaml
 # To prevent storing dev/temporary container data
 *.csv
 /tmp/*
+user_app/.db/*
+order_app/.db/*
+product_app/.db/*

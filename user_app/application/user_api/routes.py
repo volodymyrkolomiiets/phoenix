@@ -9,12 +9,15 @@ from passlib.hash import sha256_crypt
 
 @login_manager.user_loader
 def load_user(user_id):
+    print('User loader from id !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     return User.query.filter_by(id=int(user_id)).first()
 
 
 @login_manager.request_loader
 def load_user_from_request(request):
+    print('USer loader from header !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     api_key = request.headers.get("Authorization")
+    print(api_key, '!!!!!!!!!!!!!!!!!!!!!!!!!!!11111111111')
     if api_key:
         api_key = api_key.replace("Basic ", "", 1)
         user = User.query.filter_by(api_key=api_key).first()
@@ -25,6 +28,8 @@ def load_user_from_request(request):
 
 @user_api_blueprint.route("/api/users", methods=["GET"])
 def gets_users():
+    from flask import session
+    print(session)
     data = []
     for row in User.query.all():
         data.append(row.to_json())
@@ -33,7 +38,7 @@ def gets_users():
     return response
 
 
-@user_api_blueprint.route("/api/user/create/", methods=["POST"])
+@user_api_blueprint.route("/api/user/create", methods=["POST"])
 def post_register():
     first_name = request.form["first_name"]
     last_name = request.form["last_name"]

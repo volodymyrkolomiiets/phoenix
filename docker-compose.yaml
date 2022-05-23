@@ -1,46 +1,46 @@
 version: '3.8'
 services:
-#  user-srv:
-#    build:
-#     context: user_app
-#     dockerfile: users.Dockerfile
-#    ports:
-#      - "5001:5001"
-#    volumes:
-#      - $PWD/user_app:/userapp
-#    links:
-#      - user_dev_db
-#
-#  user_dev_db:
-#    image: mysql:8.0
-#    restart: always
-#    env_file:
-#      - $PWD/docker_conf/docker_user_config
-#    ports:
-#      - "33061:3306"
-#    volumes:
-#      - $PWD/user_app/.db:/var/lib/mysql
-#
-#  product_dev_db:
-#    image: mysql:8.0
-#    restart: always
-#    env_file:
-#      - $PWD/docker_conf/docker_product_config
-#    ports:
-#      - "33062:3306"
-#    volumes:
-#      - $PWD/product_app/.db:/var/lib/mysql
-#
-#  product-srv:
-#    build:
-#      context: product_app
-#      dockerfile: product.Dockerfile
-#    ports:
-#      - "5002:5002"
-#    volumes:
-#      - $PWD/product_app:/product_app
-#    links:
-#      - product_dev_db
+  user-srv:
+    build:
+     context: user_app
+     dockerfile: users.Dockerfile
+    ports:
+      - "5001:5001"
+    volumes:
+      - $PWD/user_app:/user_app
+    links:
+      - user_dev_db
+
+  user_dev_db:
+    image: mysql:8.0
+    restart: always
+    env_file:
+      - $PWD/docker_conf/docker_user_config
+    ports:
+      - "33061:3306"
+    volumes:
+      - $PWD/user_app/.db:/var/lib/mysql
+
+  product_dev_db:
+    image: mysql:8.0
+    restart: always
+    env_file:
+      - $PWD/docker_conf/docker_product_config
+    ports:
+      - "33062:3306"
+    volumes:
+      - $PWD/product_app/.db:/var/lib/mysql
+
+  product-srv:
+    build:
+      context: product_app
+      dockerfile: product.Dockerfile
+    ports:
+      - "5002:5002"
+    volumes:
+      - $PWD/product_app:/product_app
+    links:
+      - product_dev_db
 
   order_dev_db:
     image: mysql:8.0

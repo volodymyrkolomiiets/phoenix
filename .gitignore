@@ -10,7 +10,7 @@ __pycache__/
 .Python
 .idea
 build/
-
+.flaskenv
 user_app/.flaskenv
 develop-eggs/
 dist/
